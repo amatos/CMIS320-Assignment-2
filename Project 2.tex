@@ -85,7 +85,7 @@ Entities and preliminary attributes.
 \end{itemize}
 	\item DistCat (Distributor Catalogue)
 	      \begin{itemize}
-		      \item Attributes: DistCatID (key)
+		      \item Attributes: DistCatID (key), Distributor (FK), Movie (FK), Price, Distributor Serial Number
 	      \end{itemize}
 	\item Fees
 	      \begin{itemize}
@@ -197,6 +197,7 @@ Entities and preliminary attributes.
 	             & Distributor       & FK    & NUMBER        & FK for Distributors.DistributorID.                            \\
 	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
 	             & Price             &       & Number        & Catalogue Price.                                              \\
+                 & Medium & & VARCHAR2(5) & Medium Type.
 	             & DistributorSerial &       & VARCHAR2(50)  & Distributor Serial Number.                                    \\
 	\\
 	DMMapper     & DMMapperID        & PK    & NUMBER        & Primary Key for Director to Movie Mapper. Not null.           \\
