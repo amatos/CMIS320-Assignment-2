@@ -213,7 +213,12 @@ Entities and preliminary attributes.
 	GMMapper     & GMMapperID        & PK    & NUMBER        & Primary Key for Genre to Movie Mapper. Not null.              \\
 	             & Genre             & FK    & NUMBER        & FK for Genres.GenreID.                                        \\
 	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
-	\\
+\\
+	MAMapper     & MAMapperID        & PK    & NUMBER        & Primary Key for Movie to Award Mapper. Not null.              \\
+& Award             & FK    & NUMBER        & FK for Awards.awardID.                                        \\
+& Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
+\\
+
 	Media        & MediumID          & PK    & NUMBER        & Primary Key for Media. Not null.                              \\
 	             & MediumType        &       & VARCHAR2(5)   & Medium Type, i.e. DVD, VHS.                                   \\
 	             & MovieID           & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
