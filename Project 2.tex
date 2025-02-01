@@ -40,11 +40,10 @@ The database system will also help \emph{Acme Video Rental} track their customer
 \section{Data Model}
 Entities and preliminary attributes.
 \begin{itemize}
-    	\item AAMapper (Actor to Award Mapper)
-    \begin{itemize}
-        \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), AwardID (foreign Key referencing Award)
-    \end{itemize}
-    
+	\item AAMapper (Actor to Award Mapper)
+	      \begin{itemize}
+		      \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), AwardID (foreign Key referencing Award)
+	      \end{itemize}
 	\item Actors
 	      \begin{itemize}
 		      \item Attributes: ActorID (key), Name (Given and Family names, that is, First and Last names, in separate fields)
@@ -53,11 +52,10 @@ Entities and preliminary attributes.
 	      \begin{itemize}
 		      \item Attributes: AddressID (key), Street Address (2 lines), Suite, City, State, Postal Code
 	      \end{itemize}
-	\item ActorMovieMapper (AMMapper)
-\begin{itemize}
-    \item Attributes: MapperID (key), ActorID (FK), MovieID (FK)
-\end{itemize}
-
+	\item AMMapper (Actor to Movie Mapper)
+	      \begin{itemize}
+		      \item Attributes: MapperID (key), ActorID (FK), MovieID (FK)
+	      \end{itemize}
 	\item Awards
 	      \begin{itemize}
 		      \item Attributes: AwardID (key), Name, Award won (was the award won, or was it a nomination only), Award year
@@ -67,22 +65,21 @@ Entities and preliminary attributes.
 		      \item Attributes: CustomerID (key), Name, Address (FK), Phone Number, Email address, Parent ID (for sub-accounts), Restricted (for child accounts)
 	      \end{itemize}
 	\item DMMapper (Director to Movie Mappers)
-\begin{itemize}
-    \item Attributes: MapperID (key), DirectorID (FK), MovieID (FK)
-\end{itemize}
+	      \begin{itemize}
+		      \item Attributes: MapperID (key), DirectorID (FK), MovieID (FK)
+	      \end{itemize}
 	\item DAMapper (Director to Award Mappers)
-\begin{itemize}
-    \item Attributes: MapperID (key), DirectorID (FK), AwardID (FK), Award Won (FK)
-\end{itemize}
-
+	      \begin{itemize}
+		      \item Attributes: MapperID (key), DirectorID (FK), AwardID (FK), Award Won (FK)
+	      \end{itemize}
 	\item Directors
 	      \begin{itemize}
 		      \item Attributes: DirectorID (key), Name
 	      \end{itemize}
 	\item Distributors
-\begin{itemize}
-    \item Attributes: DistributorID (key), Name, Billing Address (FK), Returns Address (FK), Phone Number, Discount Rate
-\end{itemize}
+	      \begin{itemize}
+		      \item Attributes: DistributorID (key), Name, Billing Address (FK), Returns Address (FK), Phone Number, Discount Rate
+	      \end{itemize}
 	\item DistCat (Distributor Catalogue)
 	      \begin{itemize}
 		      \item Attributes: DistCatID (key), Distributor (FK), Movie (FK), Price, Medium, Distributor Serial Number
@@ -101,7 +98,7 @@ Entities and preliminary attributes.
 	      \end{itemize}
 	\item Media
 	      \begin{itemize}
-		      \item Attributes: MediumID (key), Medium Type, Movie ID (FK), Acme Inventory ID, Distributor, Distributor Serial Number, Distributor Movie ID, Rental Price
+		      \item Attributes: MediumID (key), Medium Type, Movie ID (FK), Acme Inventory ID, Distributor (FK), Distributor Serial Number, Distributor Movie ID, Rental Price
 	      \end{itemize}
 	\item Movies
 	      \begin{itemize}
@@ -119,7 +116,9 @@ Entities and preliminary attributes.
 	      \begin{itemize}
 		      \item Attributes: Rental ID (key), Rental Date, Scheduled Return Date, Was Movie Returned, Customer (FK), Medium (FK), Discount Applied, Late Fee (FK), Damage Fee (DK), Rewind Fee (FK), Tax charged
 	      \end{itemize}
-	
+
+\subsection{Relationship Sentence Pairs}
+An actor 
 \end{itemize}
 
 \section{ER Diagram}
@@ -140,7 +139,6 @@ Entities and preliminary attributes.
 	AAMapper     & AAMapperID        & PK    & NUMBER        & Primary Key for Actor to Award Mapper. Not null.              \\
 	             & Actor             & FK    & NUMBER        & FK for Actors.ActorID.                                        \\
 	             & Award             & FK    & NUMBER        & FK for Awards.AwardID.                                        \\
-	             & AwardWon          & FK    & BOOLEAN       & FK for Awards.AwardWon.                                       \\
 	\\
 	Actors       & ActorID           & PK    & NUMBER        & Primary Key for Actor Entity. Not null.                       \\
 	             & GivenName         &       & VARCHAR2(50)  & Actor's/Actress' Given Name. Not null.                        \\
@@ -152,7 +150,7 @@ Entities and preliminary attributes.
 	             & Suite             &       & varchar2(20)  & Suite Number/Code.                                            \\
 	             & City              &       & varchar2(50)  & City name. Not null.                                          \\
 	             & State             &       & VARCHAR2(20)  & State name. Not null.                                         \\
-	             & PortalCode        &       & varchar2(20)  & Postal Code. Not null.                                        \\
+	             & PostalCode        &       & varchar2(20)  & Postal Code. Not null.                                        \\
 	             & Country           &       & VARCHAR2(2)   & ISO country code. Not null.                                   \\
 	\\
 	AMMapper     & AMMapperID        & PK    & NUMBER        & Primary Key for Actor to Movie Mapper. Not null.              \\
@@ -162,7 +160,6 @@ Entities and preliminary attributes.
 	Awards       & AwardID           & PK    & NUMBER        & Primary Key for Award.                                        \\
 	             & AwardName         &       & varchar2(20)  & Name of award.                                                \\
 	             & AwardWon          &       & BOOLEAN       & Was nominated or won award.                                   \\
-	             & AwardYear         &       & NUMBER        & Year awarded.                                                 \\
 	\\
 	Customers    & CustomerID        & PK    & NUMBER        & PK for Customer Entity. Not null.                             \\
 	             & GivenName         &       & VARCHAR2(50)  & Customer Given Name. Not null.                                \\
@@ -176,7 +173,6 @@ Entities and preliminary attributes.
 	DAMapper     & DAMapperID        & PK    & NUMBER        & Primary Key for Director to Award Mapper. Not null.           \\
 	             & Director          & FK    & NUMBER        & FK for Directors.DirectorID                                   \\
 	             & Award             & FK    & NUMBER        & FK for Awards.AwardID.                                        \\
-	             & AwardWon          & FK    & BOOLEAN       & FK for Awards.AwardWon.                                       \\
 	\\
 	Directors    & DirectorID        & PK    & NUMBER        & Primary Key for Director Entity. Not null.                    \\
 	             & GivenName         &       & VARCHAR2(50)  & Director Given (First) Name. Not null.                        \\
@@ -194,7 +190,7 @@ Entities and preliminary attributes.
 	             & Distributor       & FK    & NUMBER        & FK for Distributors.DistributorID.                            \\
 	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
 	             & Price             &       & Number        & Catalogue Price.                                              \\
-                 & Medium & & VARCHAR2(5) & Medium Type.
+	             & Medium            &       & VARCHAR2(5)   & Medium Type.                                                  \\
 	             & DistributorSerial &       & VARCHAR2(50)  & Distributor Serial Number.                                    \\
 	\\
 	DMMapper     & DMMapperID        & PK    & NUMBER        & Primary Key for Director to Movie Mapper. Not null.           \\
@@ -213,17 +209,17 @@ Entities and preliminary attributes.
 	GMMapper     & GMMapperID        & PK    & NUMBER        & Primary Key for Genre to Movie Mapper. Not null.              \\
 	             & Genre             & FK    & NUMBER        & FK for Genres.GenreID.                                        \\
 	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
-\\
+	\\
 	MAMapper     & MAMapperID        & PK    & NUMBER        & Primary Key for Movie to Award Mapper. Not null.              \\
-& Award             & FK    & NUMBER        & FK for Awards.awardID.                                        \\
-& Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
-\\
+	             & Award             & FK    & NUMBER        & FK for Awards.awardID.                                        \\
+	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
+	\\
 
 	Media        & MediumID          & PK    & NUMBER        & Primary Key for Media. Not null.                              \\
 	             & MediumType        &       & VARCHAR2(5)   & Medium Type, i.e. DVD, VHS.                                   \\
 	             & MovieID           & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
 	             & AcmeInvetoryID    &       & NUMBER        & Acme Unique Inventory ID. Not null.                           \\
-                 & Distributor & FK & NUMBER & FK for Distributors.DistributorID
+	             & Distributor       & FK    & NUMBER        & FK for Distributors.DistributorID.                            \\
 	             & DistributorSerial &       & NUMBER        & Distributor Serial Number. Not null.                          \\
 	             & DistributorUID    &       & NUMBER        & Distributor Movie ID. Not null.                               \\
 	             & RentalPrice       &       & NUMBER        & Base Rental Price. Not Null                                   \\
@@ -246,6 +242,7 @@ Entities and preliminary attributes.
 	\\
 	Rentals      & RentalID          & PK    & NUMBER        & Primary Key for Rentals. Not null.                            \\
 	             & RentalDate        &       & DATE          & Date of Activity. Not null.                                   \\
+	             & ScheduledReturn   &       & DATE          & Scheduled Return Date                                         \\
 	             & ReturnDate        &       & DATE          & Scheduled Return Date. Not null.                              \\
 	             & Customer          & FK    & NUMBER        & FK for Customers.CustomerID.                                  \\
 	             & Medium            & FK    & NUMBER        & FK for Media.MediumID                                         \\
