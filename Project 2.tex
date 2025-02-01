@@ -39,40 +39,42 @@ In order to help \emph{Acme Video Rental} better their costs, the database syste
 The database system will also help \emph{Acme Video Rental} track their customers by recording when a Movie is rented, and whether any fees are due as a result of either damaged, late, or, in the case of VHS tapes, a failure to rewind the tape before it is returned.  This will also provide a benefit to \emph{Acme Video Rental}'s customers, who will be able to track what movies they have rented, and possibly identify previously unknown preferences on genres, directors, actors and actresses.  As an additional benefit, \emph{Acme Video Rental} will also be able to offer ``Family Accounts'' so that other members of a customer's family will be able to consolidate billing under a single individual.  This also provides a measure of parental controls, as ``Family Account'' members can be restricted to only rent movies under a predefined rating (That is, a restricted child account should not be able to rent an 'R' or 'MA' movie).
 \section{Data Model}
 Entities
-\begin{multicols}{2}
-	\begin{itemize}
-		\item ActorMovieMapper
-            \begin{itemize}
-                \item Unique ID
-                \item Actor
-                \item Movie
-            \end{itemize}
-
-		\item Actors
-            \begin{itemize}
-    \item Actor ID
-    \item Given (First) Name
-    \item Family (Last) Name
+\begin{itemize}
+	\item ActorMovieMapper
+	      \begin{itemize}
+		      \item Actor
+		      \item Movie
+	      \end{itemize}
+	\item Actors
+	      \begin{itemize}
+		      \item Attributes: ActorID (key), Name
+	      \end{itemize}
+	\item Addresses
+        \begin{itemize}
+            \item Street Address
+            \item Suite
+            \item City
+            \item State
+            \item Postal Code
+        \end{itemize}
+	\item AwardMovieMapper
+	\item Awards
+	\item Customers
+	\item DirectorMovieMappers
+	\item Directors
+	\item DistributorCatalogue
+	\item Distributors
+	\item Fees
+	\item GenreMovieMapper
+	\item Genres
+	\item Media
+	\item Movies
+	\item ProducerMovieMappers
+	\item Producers
+	\item RentalActivities
+	\item Rentals
 \end{itemize}
-		\item Addresses
-		\item AwardMovieMapper
-		\item Awards
-		\item Customers
-		\item DirectorMovieMappers
-		\item Directors
-		\item DistributorCatalogue
-		\item Distributors
-		\item Fees
-		\item GenreMovieMapper
-		\item Genres
-		\item Media
-		\item Movies
-		\item ProducerMovieMappers
-		\item Producers
-		\item RentalActivities
-		\item Rentals
-	\end{itemize}
-\end{multicols}
+
 \section{ER Diagram}
 
 \section{Metadata}
