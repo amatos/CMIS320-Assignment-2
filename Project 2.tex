@@ -105,7 +105,7 @@ Entities and preliminary attributes.
 	      \end{itemize}
 	\item Movies
 	      \begin{itemize}
-		      \item Attributes:
+		      \item Attributes: MovieID (key), Acme Movie ID, Title, Duration, Rating, Genre (FK)
 	      \end{itemize}
 	\item ProducerMovieMappers
 	      \begin{itemize}
@@ -234,8 +234,6 @@ Entities and preliminary attributes.
 	Movies       & MovieID           & PK    & NUMBER        & Primary Key for Movie Entity. Not null.                       \\
 	             & AcmeMovieID       &       & NUMBER        & Acme Unique Movie ID. Not null.                               \\
 	             & Title             &       & VARCHAR2(250) & Movie Title. Not null.                                        \\
-	             & DirectorID        & FK    & NUMBER        & FK for Directors.DirectorID.                                  \\
-	             & ProducerID        & FK    & NUMBER        & FK for Producers.ProducerID.                                  \\
 	             & Duration          &       & NUMBER        & Movie Length. Not null.                                       \\
 	             & Rating            &       & CHAR(2)       & Movie Rating.                                                 \\
 	             & Genre             & FK    & NUMBER        & FK for Genres.GenreID.                                        \\
