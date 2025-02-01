@@ -1,0 +1,111 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{tabularray}
+\usepackage{array}
+\geometry{margin=2.5cm}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\fontfamily{phv}\selectfont
+\usepackage[]{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{13pt}
+\setlength{\tabcolsep}{1em}
+\usepackage[backend=biber,
+            style=apa,
+            autocite=inline,
+            hyperref=false,
+            datezeros=true,
+            timezones=true]{biblatex}
+\addbibresource{}
+\title{\large{Acme Video Store database proposal}}
+\author{Alberth Matos}
+\date{\today}
+\NewTblrTheme{fancy}{
+	\SetTblrStyle{firsthead}{font=\bfseries}
+}
+\UseTblrLibrary{booktabs}
+\begin{document}
+
+
+% Clear all headers and footers (see also \fancyhf{})
+\fancyhead{}
+\fancyhead[R]{\small Alberth Matos}
+\fancyhead[L]{\small CMIS 320}
+\fancyhead[C]{\small Project 2}
+
+\maketitle
+
+\section{Description}
+
+\section{Data Model}
+Entities
+\begin{itemize}
+\item Producer
+\item Movie
+\item Customer
+\item Media
+\item Distributor
+\item Rental
+\item Actor
+\item Director
+\end{itemize}
+\section{ER Diagram}
+
+\section{Metadata}
+
+\begin{longtblr}[
+	theme = fancy,
+	label=none,
+	caption = {Acme Video Rental}
+	]{
+		colspec = {X[-1]X[-1]X[-1,c]X[-1]X},
+		width = 0.95\linewidth,
+		rowhead = 1
+		}
+\toprule[2pt]
+Entity & Attributes & PK/FK & Data Types & Description\\
+\midrule
+Director & DirectorID & PK & NUMBER & Primary Key for Director Entity\\
+& Given Name && VARCHAR2(50) & Director Given (First) Name\\
+& Family Name && VARCHAR2(50) & Director Family (Last) Name\\
+
+Producer & Producer ID & PK & NUMBER & Primary Key for Producer Entity\\
+& Given Name && VARCHAR2(50) & Director Given (First) Name\\
+& Family Name && VARCHAR2(50) & Director Family (Last) Name\\
+& Production Company && VARCHAR2(50) & Production Company Name\\
+
+Distributor & DistributorID & PK & NUMBER & Primary Key for Distributors\\
+& Distributor Name && VARCHAR2(50) & Distributor Name\\
+& Address & FK & NUMBER & FK for Address\\
+
+Movie & MovieID & PK & NUMBER & Primary Key for Movie Entity\\
+& Acme ID && NUMBER & Acme Unique Movie ID\\
+& Title && VARCHAR2(250) & Movie Title\\
+& DirectorID & FK & NUMBER & FK for Movie Director\\
+& ProducerID & FK & NUMBER & FK for Movie Producer\\
+& Duration && NUMBER & Movie Length\\
+& Rating && CHAR(1) & Movie Rating\\
+& Genre & FK & NUMBER & FK for Movie Genre\\
+
+Media & MediaID & PK & NUMBER & Primary Key for Media\\
+& MovieID & FK & NUMBER & FK for Movie\\
+& Acme ID & & NUMBER & Acme Unique Inventory ID\\
+& Distributor Serial && NUMBER  & Distributor Serial Number\\
+& Distributor UID && NUMBER & Distributor Movie ID\\
+
+
+Actor & Actor ID & PK & NUMBER & Primary Key for Actor Entity\\
+& Given Name && VARCHAR2(50) & Actor's/Actress' Given Name\\
+& Family Name && VARCHAR2(50) & Actor's/Actress' Family Name\\
+
+Customer & CustomerID & PK & NUMBER & PK for Customer Entity\\
+& Given Name && VARCHAR2(50) & Customer Given Name\\
+& Family Name && VARCHAR2(50) & Customer Family Name\\
+& Address & FK & NUMBER & FK for Address\\
+& Phone Number && NUMBER & Telephone Number\\
+\bottomrule
+\end{longtblr}
+\end{document}
