@@ -55,21 +55,21 @@ Entities and preliminary attributes.
 	      \end{itemize}
 	\item ActorMovieMapper (AMMapper)
 \begin{itemize}
-    \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), MovieID (foreign Key referencing Movie)
+    \item Attributes: MapperID (key), ActorID (FK), MovieID (FK)
 \end{itemize}
 
 	\item Awards
 	      \begin{itemize}
-		      \item Attributes: AwardID (key)
+		      \item Attributes: AwardID (key), Name, Award won (was the award won, or was it a nomination only), Award year
 	      \end{itemize}
 	\item Customers
 	      \begin{itemize}
-		      \item Attributes:
+		      \item Attributes: CustomerID (key), Name, Address (FK), Phone Number, Email address, Parent ID (for sub-accounts), Restricted (for child accounts)
 	      \end{itemize}
-	\item DirectorMovieMappers
-	      \begin{itemize}
-		      \item Attributes:
-	      \end{itemize}
+	\item DMMapper (DirectorMovieMappers)
+\begin{itemize}
+    \item Attributes: MapperID (key), DirectorID (FK), MovieID (FK)
+\end{itemize}
 	\item Directors
 	      \begin{itemize}
 		      \item Attributes:
