@@ -101,7 +101,7 @@ Entities and preliminary attributes.
 	      \end{itemize}
 	\item Media
 	      \begin{itemize}
-		      \item Attributes: MediumID (key), Medium Type, Movie ID (FK), Acme Inventory ID
+		      \item Attributes: MediumID (key), Medium Type, Movie ID (FK), Acme Inventory ID, Distributor, Distributor Serial Number, Distributor Movie ID, Rental Price
 	      \end{itemize}
 	\item Movies
 	      \begin{itemize}
@@ -226,6 +226,7 @@ Entities and preliminary attributes.
 	             & MediumType        &       & VARCHAR2(5)   & Medium Type, i.e. DVD, VHS.                                   \\
 	             & MovieID           & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
 	             & AcmeInvetoryID    &       & NUMBER        & Acme Unique Inventory ID. Not null.                           \\
+                 & Distributor & FK & NUMBER & FK for Distributors.DistributorID
 	             & DistributorSerial &       & NUMBER        & Distributor Serial Number. Not null.                          \\
 	             & DistributorUID    &       & NUMBER        & Distributor Movie ID. Not null.                               \\
 	             & RentalPrice       &       & NUMBER        & Base Rental Price. Not Null                                   \\
