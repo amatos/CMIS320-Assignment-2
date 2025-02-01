@@ -3,6 +3,7 @@
 \usepackage{setspace}
 \usepackage{tabularray}
 \usepackage{array}
+\usepackage{multicol}
 \geometry{margin=2.5cm}
 \usepackage[utf8x]{inputenc}
 \usepackage[english]{babel}
@@ -31,85 +32,173 @@
 \maketitle
 
 \section{Description}
-text
+This database system will help \emph{Acme Video Rental} modernize their business by digitizing a currently manual process, which will help \emph{Acme Video Rental} be more effective, efficient, and better serve their customers.  The database will collect information on Actors, Movies, Directors, Producers, movie genres, release years, and awards, mapping those entities with relationships such that \emph{Acme Video Rental} staff can help customers by directing them to what movies have won Academy Awards, which movies feature which actors and actresses, which films were produced by certain producers, or movies within certain genres that were released in a given year.
+
+In order to help \emph{Acme Video Rental} better their costs, the database system will also take in electronic data provided by various suppliers, so that \emph{Acme Video Rental} staff can search their suppliers' catalogues to identify which supplier offers the best price for a specific movie and format (i.e., ``Gone with the Wind'' in VHS may be one price, but the DVD may be a different price.).  By querying the database for the price of a specific movie, \emph{Acme Video Rental} can determine which supplier offers the lowest cost.
+
+The database system will also help \emph{Acme Video Rental} track their customers by recording when a Movie is rented, and whether any fees are due as a result of either damaged, late, or, in the case of VHS tapes, a failure to rewind the tape before it is returned.  This will also provide a benefit to \emph{Acme Video Rental}'s customers, who will be able to track what movies they have rented, and possibly identify previously unknown preferences on genres, directors, actors and actresses.  As an additional benefit, \emph{Acme Video Rental} will also be able to offer ``Family Accounts'' so that other members of a customer's family will be able to consolidate billing under a single individual.  This also provides a measure of parental controls, as ``Family Account'' members can be restricted to only rent movies under a predefined rating (That is, a restricted child account should not be able to rent an 'R' or 'MA' movie).
 \section{Data Model}
 Entities
-\begin{itemize}
-\item Actors
-\item Customers
-\item Directors
-\item DirectorMovieMappers
-\item Distributors
-\item Media
-\item Movies
-\item Producers
-\item ProducerMovieMappers
-\item DistributorCatalogue
-\item Addresses
-\item Awards
-\item AwardMovieMapper
-\item Genres
-\item GenreMovieMapper
-\item ActorMovieMapper
-\item RentalActivities
-\item Fees
-\item Rentals
-
+\begin{multicols}{2}
+	\begin{itemize}
+		\item ActorMovieMapper
+            \begin{itemize}
+                \item Unique ID
+                \item Actor
+                \item Movie
+            \end{itemize}
+		\item Actors
+            \begin{itemize}
+    \item Unique ID
+    \item Name
+    \item Movie
 \end{itemize}
+		\item Addresses
+		\item AwardMovieMapper
+		\item Awards
+		\item Customers
+		\item DirectorMovieMappers
+		\item Directors
+		\item DistributorCatalogue
+		\item Distributors
+		\item Fees
+		\item GenreMovieMapper
+		\item Genres
+		\item Media
+		\item Movies
+		\item ProducerMovieMappers
+		\item Producers
+		\item RentalActivities
+		\item Rentals
+	\end{itemize}
+\end{multicols}
 \section{ER Diagram}
 
 \section{Metadata}
-
 \begin{longtblr}[
-	theme = fancy,
-	label=none,
-	caption = {Acme Video Rental}
+		theme = fancy,
+		label=none,
+		caption = {Acme Video Rental}
 	]{
-		colspec = {X[-1]X[-1]X[-1,c]X[-1]X},
+		colspec = {XXX[-1,c]XX},
 		width = 0.95\linewidth,
 		rowhead = 1
-		}
-\toprule[2pt]
-Entity & Attributes & PK/FK & Data Types & Description\\
-\midrule
-Director & DirectorID & PK & NUMBER & Primary Key for Director Entity\\
-& Given Name && VARCHAR2(50) & Director Given (First) Name\\
-& Family Name && VARCHAR2(50) & Director Family (Last) Name\\
-
-Producer & Producer ID & PK & NUMBER & Primary Key for Producer Entity\\
-& Given Name && VARCHAR2(50) & Director Given (First) Name\\
-& Family Name && VARCHAR2(50) & Director Family (Last) Name\\
-& Production Company && VARCHAR2(50) & Production Company Name\\
-
-Distributor & DistributorID & PK & NUMBER & Primary Key for Distributors\\
-& Distributor Name && VARCHAR2(50) & Distributor Name\\
-& Address & FK & NUMBER & FK for Address\\
-
-Movie & MovieID & PK & NUMBER & Primary Key for Movie Entity\\
-& Acme ID && NUMBER & Acme Unique Movie ID\\
-& Title && VARCHAR2(250) & Movie Title\\
-& DirectorID & FK & NUMBER & FK for Movie Director\\
-& ProducerID & FK & NUMBER & FK for Movie Producer\\
-& Duration && NUMBER & Movie Length\\
-& Rating && CHAR(1) & Movie Rating\\
-& Genre & FK & NUMBER & FK for Movie Genre\\
-
-Media & MediaID & PK & NUMBER & Primary Key for Media\\
-& MovieID & FK & NUMBER & FK for Movie\\
-& Acme ID & & NUMBER & Acme Unique Inventory ID\\
-& Distributor Serial && NUMBER  & Distributor Serial Number\\
-& Distributor UID && NUMBER & Distributor Movie ID\\
-
-
-Actor & Actor ID & PK & NUMBER & Primary Key for Actor Entity\\
-& Given Name && VARCHAR2(50) & Actor's/Actress' Given Name\\
-& Family Name && VARCHAR2(50) & Actor's/Actress' Family Name\\
-
-Customer & CustomerID & PK & NUMBER & PK for Customer Entity\\
-& Given Name && VARCHAR2(50) & Customer Given Name\\
-& Family Name && VARCHAR2(50) & Customer Family Name\\
-& Address & FK & NUMBER & FK for Address\\
-& Phone Number && NUMBER & Telephone Number\\
-\bottomrule
+	}
+	\toprule[2pt]
+	Entity       & Attributes        & PK/FK & Data Types    & Description                                                   \\
+	\midrule
+	AAMapper     & AAMapperID        & PK    & NUMBER        & Primary Key for Actor to Award Mapper. Not null.              \\
+	             & Actor             & FK    & NUMBER        & FK for Actors.ActorID.                                        \\
+	             & Award             & FK    & NUMBER        & FK for Awards.AwardID.                                        \\
+	             & AwardWon          & FK    & BOOLEAN       & FK for Awards.AwardWon.                                       \\
+	\\
+	Actors       & ActorID           & PK    & NUMBER        & Primary Key for Actor Entity. Not null.                       \\
+	             & GivenName         &       & VARCHAR2(50)  & Actor's/Actress' Given Name. Not null.                        \\
+	             & FamilyName        &       & VARCHAR2(50)  & Actor's/Actress' Family Name.                                 \\
+	\\
+	Addresses    & AddressID         & PK    & NUMBER        & Primary Key for Addresses. Not Null.                          \\
+	             & StreetAddress1    &       & varchar2(50)  & Street Address. Not null.                                     \\
+	             & StreetAddress2    &       & varchar2(50)  & Street Address, line 2.                                       \\
+	             & Suite             &       & varchar2(20)  & Suite Number/Code.                                            \\
+	             & City              &       & varchar2(50)  & City name. Not null.                                          \\
+	             & State             &       & VARCHAR2(20)  & State name. Not null.                                         \\
+	             & PortalCode        &       & varchar2(20)  & Postal Code. Not null.                                        \\
+	             & Country           &       & VARCHAR2(2)   & ISO country code. Not null.                                   \\
+	\\
+	AMMapper     & AMMapperID        & PK    & NUMBER        & Primary Key for Actor to Movie Mapper. Not null.              \\
+	             & Actor             & FK    & NUMBER        & FK for Actors.ActorID.                                        \\
+	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
+	\\
+	Awards       & AwardID           & PK    & NUMBER        & Primary Key for Award.                                        \\
+	             & AwardName         &       & varchar2(20)  & Name of award.                                                \\
+	             & AwardWon          &       & BOOLEAN       & Was nominated or won award.                                   \\
+	             & AwardYear         &       & NUMBER        & Year awarded.                                                 \\
+	\\
+	Customers    & CustomerID        & PK    & NUMBER        & PK for Customer Entity. Not null.                             \\
+	             & GivenName         &       & VARCHAR2(50)  & Customer Given Name. Not null.                                \\
+	             & FamilyName        &       & VARCHAR2(50)  & Customer Family Name.                                         \\
+	             & Address           & FK    & NUMBER        & FK for Addresses.AddressID.                                   \\
+	             & PhoneNumber       &       & NUMBER        & Telephone Number. Not null.                                   \\
+	             & Email             &       & VARCHAR2(50)  & Email Address.                                                \\
+	             & ParentID          & FK    & NUMBER        & FK for Customers.Customer. Used to track ``family'' accounts. \\
+	             & Restricted        &       & BOOLEAN       & Flag for a restricted account.                                \\
+	\\
+	DAMapper     & DAMapperID        & PK    & NUMBER        & Primary Key for Director to Award Mapper. Not null.           \\
+	             & Director          & FK    & NUMBER        & FK for Directors.DirectorID                                   \\
+	             & Award             & FK    & NUMBER        & FK for Awards.AwardID.                                        \\
+	             & AwardWon          & FK    & BOOLEAN       & FK for Awards.AwardWon.                                       \\
+	\\
+	Directors    & DirectorID        & PK    & NUMBER        & Primary Key for Director Entity. Not null.                    \\
+	             & GivenName         &       & VARCHAR2(50)  & Director Given (First) Name. Not null.                        \\
+	             & FamilyName        &       & VARCHAR2(50)  & Director Family (Last) Name.                                  \\
+	\\
+	Distributors & DistributorID     & PK    & NUMBER        & Primary Key for Distributors. Not null.                       \\
+	             & DistributorName   &       & VARCHAR2(50)  & Distributor Name. Not null.                                   \\
+	             & BillingAddress    & FK    & NUMBER        & FK for Addresses.AddressID.                                   \\
+	             & ReturnsAddress    & FK    & NUMBER        & FK for Addresses.AddressID.                                   \\
+	             & PhoneNumber       &       & NUMBER        & Distributor Phone Number. Not null.                           \\
+	             & EmailAddress      &       & VARCHAR2(50)  & Email Address.                                                \\
+	             & Discount          &       & NUMBER        & Discount rate offereed.                                       \\
+	\\
+	DistCat      & DistCatID         & PK    & NUMBER        & Primary key for Distributor Catalogue ID. Not null.           \\
+	             & Distributor       & FK    & NUMBER        & FK for Distributors.DistributorID.                            \\
+	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
+	             & Price             &       & Number        & Catalogue Price.                                              \\
+	             & DistributorSerial &       & VARCHAR2(50)  & Distributor Serial Number.                                    \\
+	\\
+	DMMapper     & DMMapperID        & PK    & NUMBER        & Primary Key for Director to Movie Mapper. Not null.           \\
+	             & MovieID           & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
+	             & DirectorID        & FK    & NUMBER        & FK for Directors.DirectorID.                                  \\
+	\\
+	Fees         & FeeID             & PK    & NUMBER        & PK for Fee.                                                   \\
+	             & Fee               &       & VARCHAR2(20)  & Type of Fee.                                                  \\
+	             & FeeCost           &       & NUMBER        & Cost of Fee.                                                  \\
+	             & FeeStart          &       & DATE          & Date Fee effective.                                           \\
+	             & FeeEnd            &       & DATE          & Date Fee expired.                                             \\
+	\\
+	Genres       & GenreID           & PK    & NUMBER        & Primary Key for Genre. Not null.                              \\
+	             & Genre             &       & VARCHAR2(20)  & Genre Description.                                            \\
+	\\
+	GMMapper     & GMMapperID        & PK    & NUMBER        & Primary Key for Genre to Movie Mapper. Not null.              \\
+	             & Genre             & FK    & NUMBER        & FK for Genres.GenreID.                                        \\
+	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
+	\\
+	Media        & MediumID          & PK    & NUMBER        & Primary Key for Media. Not null.                              \\
+	             & MediumType        &       & VARCHAR2(5)   & Medium Type, i.e. DVD, VHS.                                   \\
+	             & MovieID           & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
+	             & AcmeInvetoryID    &       & NUMBER        & Acme Unique Inventory ID. Not null.                           \\
+	             & DistributorSerial &       & NUMBER        & Distributor Serial Number. Not null.                          \\
+	             & DistributorUID    &       & NUMBER        & Distributor Movie ID. Not null.                               \\
+	             & RentalPrice       &       & NUMBER        & Base Rental Price. Not Null                                   \\
+	\\
+	Movies       & MovieID           & PK    & NUMBER        & Primary Key for Movie Entity. Not null.                       \\
+	             & AcmeMovieID       &       & NUMBER        & Acme Unique Movie ID. Not null.                               \\
+	             & Title             &       & VARCHAR2(250) & Movie Title. Not null.                                        \\
+	             & DirectorID        & FK    & NUMBER        & FK for Directors.DirectorID.                                  \\
+	             & ProducerID        & FK    & NUMBER        & FK for Producers.ProducerID.                                  \\
+	             & Duration          &       & NUMBER        & Movie Length. Not null.                                       \\
+	             & Rating            &       & CHAR(2)       & Movie Rating.                                                 \\
+	             & Genre             & FK    & NUMBER        & FK for Genres.GenreID.                                        \\
+	\\
+	PMMapper     & PMMapperID        & PK    & NUMBER        & Primary Key for Producer to Movie Mapper. Not null.           \\
+	             & Producer          & FK    & NUMBER        & FK for Producers.ProducerID.                                  \\
+	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
+	\\
+	Producers    & ProducerID        & PK    & NUMBER        & Primary Key for Producer Entity. Not null.                    \\
+	             & GivenName         &       & VARCHAR2(50)  & Director Given (First) Name. Not null.                        \\
+	             & FamilyName        &       & VARCHAR2(50)  & Director Family (Last) Name.                                  \\
+	             & ProductionCompany &       & VARCHAR2(50)  & Production Company Name. Not null.                            \\
+	\\
+	Rentals      & RentalID          & PK    & NUMBER        & Primary Key for Rentals. Not null.                            \\
+	             & RentalDate        &       & DATE          & Date of Activity. Not null.                                   \\
+	             & ReturnDate        &       & DATE          & Scheduled Return Date. Not null.                              \\
+	             & Customer          & FK    & NUMBER        & FK for Customers.CustomerID.                                  \\
+	             & Medium            & FK    & NUMBER        & FK for Media.MediumID                                         \\
+	             & Discount          &       & NUMBER        & Promotional Discount.                                         \\
+	             & LateFee           & FK    & NUMBER        & FK for Fees.FeeID.                                            \\
+	             & DamageFee         & FK    & NUMBER        & FK for Fees.FeeID.                                            \\
+	             & RewindFee         & FK    & NUMBER        & FK for Fees.FeeID.                                            \\
+	             & Tax               &       & NUMBER        & Transaction Tax total. Not null                               \\
+	\bottomrule
 \end{longtblr}
 \end{document}
