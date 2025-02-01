@@ -72,20 +72,20 @@ Entities and preliminary attributes.
 \end{itemize}
 	\item DAMapper (Director to Award Mappers)
 \begin{itemize}
-    \item Attributes: MapperID (key), DirectorID (FK), MovieID (FK)
+    \item Attributes: MapperID (key), DirectorID (FK), AwardID (FK), Award Won (FK)
 \end{itemize}
 
 	\item Directors
 	      \begin{itemize}
-		      \item Attributes:
-	      \end{itemize}
-	\item DistributorCatalogue
-	      \begin{itemize}
-		      \item Attributes:
+		      \item Attributes: DirectorID (key), Name
 	      \end{itemize}
 	\item Distributors
+\begin{itemize}
+    \item Attributes: DistributorID (key), Name, Billing Address (FK), Returns Address (FK), Phone Number, Discount Rate
+\end{itemize}
+	\item DistCat (Distributor Catalogue)
 	      \begin{itemize}
-		      \item Attributes:
+		      \item Attributes: DistCatID (key)
 	      \end{itemize}
 	\item Fees
 	      \begin{itemize}
