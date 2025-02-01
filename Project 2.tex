@@ -40,7 +40,7 @@ The database system will also help \emph{Acme Video Rental} track their customer
 \section{Data Model}
 Entities and preliminary attributes.
 \begin{itemize}
-    	\item AAMapper (ActorAwardMapper)
+    	\item AAMapper (Actor to Award Mapper)
     \begin{itemize}
         \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), AwardID (foreign Key referencing Award)
     \end{itemize}
@@ -66,10 +66,15 @@ Entities and preliminary attributes.
 	      \begin{itemize}
 		      \item Attributes: CustomerID (key), Name, Address (FK), Phone Number, Email address, Parent ID (for sub-accounts), Restricted (for child accounts)
 	      \end{itemize}
-	\item DMMapper (DirectorMovieMappers)
+	\item DMMapper (Director to Movie Mappers)
 \begin{itemize}
     \item Attributes: MapperID (key), DirectorID (FK), MovieID (FK)
 \end{itemize}
+	\item DAMapper (Director to Award Mappers)
+\begin{itemize}
+    \item Attributes: MapperID (key), DirectorID (FK), MovieID (FK)
+\end{itemize}
+
 	\item Directors
 	      \begin{itemize}
 		      \item Attributes:
