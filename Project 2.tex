@@ -45,10 +45,6 @@ Entities and preliminary attributes.
         \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), AwardID (foreign Key referencing Award)
     \end{itemize}
     
-	\item ActorMovieMapper (AMMapper)
-	      \begin{itemize}
-		      \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), MovieID (foreign Key referencing Movie)
-	      \end{itemize}
 	\item Actors
 	      \begin{itemize}
 		      \item Attributes: ActorID (key), Name (Given and Family names, that is, First and Last names, in separate fields)
@@ -57,10 +53,11 @@ Entities and preliminary attributes.
 	      \begin{itemize}
 		      \item Attributes: AddressID (key), Street Address (2 lines), Suite, City, State, Postal Code
 	      \end{itemize}
-	\item AwardMovieMapper ()
-	      \begin{itemize}
-		      \item Attributes: MapperID (key), Award (foreign key referencing awards), MovieID (foreign Key referencing movie)
-	      \end{itemize}
+	\item ActorMovieMapper (AMMapper)
+\begin{itemize}
+    \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), MovieID (foreign Key referencing Movie)
+\end{itemize}
+
 	\item Awards
 	      \begin{itemize}
 		      \item Attributes: AwardID (key)
