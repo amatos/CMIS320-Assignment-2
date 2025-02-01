@@ -40,6 +40,11 @@ The database system will also help \emph{Acme Video Rental} track their customer
 \section{Data Model}
 Entities and preliminary attributes.
 \begin{itemize}
+    	\item ActorAwardMapper (AAMapper)
+    \begin{itemize}
+        \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), AwardID (foreign Key referencing Award)
+    \end{itemize}
+    
 	\item ActorMovieMapper (AMMapper)
 	      \begin{itemize}
 		      \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), MovieID (foreign Key referencing Movie)
@@ -49,31 +54,73 @@ Entities and preliminary attributes.
 		      \item Attributes: ActorID (key), Name (Given and Family names, that is, First and Last names, in separate fields)
 	      \end{itemize}
 	\item Addresses
-        \begin{itemize}
-            \item Attributes: AddressID (key), Street Address (2 lines), Suite, City, State, Postal Code
-        \end{itemize}
-	\item AwardMovieMapper
-    	      \begin{itemize}
-        \item Attributes: MapperID (key), Award (foreign key referencing awards), MovieID (foreign Key referencing movie)
-    \end{itemize}
+	      \begin{itemize}
+		      \item Attributes: AddressID (key), Street Address (2 lines), Suite, City, State, Postal Code
+	      \end{itemize}
+	\item AwardMovieMapper ()
+	      \begin{itemize}
+		      \item Attributes: MapperID (key), Award (foreign key referencing awards), MovieID (foreign Key referencing movie)
+	      \end{itemize}
 	\item Awards
-    \begin{itemize}
-        \item Attributes:
-        \end{itemize}
+	      \begin{itemize}
+		      \item Attributes: AwardID (key)
+	      \end{itemize}
 	\item Customers
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item DirectorMovieMappers
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item Directors
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item DistributorCatalogue
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item Distributors
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item Fees
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item GenreMovieMapper
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item Genres
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item Media
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item Movies
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item ProducerMovieMappers
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item Producers
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item RentalActivities
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 	\item Rentals
+	      \begin{itemize}
+		      \item Attributes:
+	      \end{itemize}
 \end{itemize}
 
 \section{ER Diagram}
