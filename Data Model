@@ -1,35 +1,31 @@
 AAMapper
 -
 AAMapperID PK number
-Actor FK >- Actors.ActorID
-Award number FK >- Awards.AwardID
-
+Actor FK - Actors.ActorID
+Award number FK -< Awards.AwardID
 
 Actors
 -
 ActorID PK number
 GiveName varchar2(50)
-FamilyName varchar2(50) nullable
-
+FamilyName varchar2(50)
 
 Addresses
 -
 AddressID PK number
 StreetAddress1 varchar2(50)
-StreetAddress2 varchar2(50) nullable
-Suite varchar2(20) nullable
+StreetAddress2 varchar2(50)
+Suite varchar2(20)
 City varchar2(50)
 State varchar2(20)
-PostalCode varchar2(20) nullable
-Country varchar2(2) nullable
-
+PostalCode varchar2(20)
+Country char(2) FK - Countries.CountryID
 
 AMMapper
 -
 AMMapperID PK number
 Actor FK - Actors.ActorID
-Movie number FK - Movies.MovieID
-
+Movie number FK -< Movies.MovieID
 
 Awards
 -
@@ -37,59 +33,58 @@ AwardID PK number
 AwardName varchar2(20)
 AwardYear number
 
+Countries
+-
+CountryID char(2)
+Country varchar2(20)
 
 Customers
 -
 CustomerID PK number
 GiveName varchar2(50)
-FamilyName varchar2(50) nullable
+FamilyName varchar2(50)
 Address FK >- Addresses.AddressID
 PhoneNumber number
 EmailAddress varchar2(50)
-ParentID number FK >- Customers.CustomerID  nullable
-Restricted boolean nullable
-
+ParentID number FK >- Customers.CustomerID
+Restricted boolean
 
 DAMapper
 -
 DAMapperID PK number
 Director number FK - Directors.DirectorID
-Award number FK - Awards.AwardID
+Award number FK -< Awards.AwardID
 
 Directors
 -
 DirectorID number PK
 GivenName varchar2(50)
-FamilyName varchar2(50) nullable
-
+FamilyName varchar2(50)
 
 Distributors
 -
 DistributorID PK number
 DistributorName varchar2(50)
 BillingAddress number FK - Addresses.AddressID
-ReturnAddress number FK - Addresses.AddressID nullable
+ReturnAddress number FK - Addresses.AddressID
 PhoneNumber number
 EmailAddress varchar2(50)
 Discount number
 
-
 DistCat
 -
 DistCat PK number
-Distributor number FK >- Distributors.DistributorID
-Movie number FK >- Movies.MovieID
+Distributor number FK - Distributors.DistributorID
+Movie number FK - Movies.MovieID
 Medium varchar2(5)
 Price number
 DistributorSerial number
 
-
 DMMapper
 -
 DMMapperID number PK
-MovieID number FK >- Movies.MovieID
+MovieID number FK - Movies.MovieID
 DirectorID number FK -< Directors.DirectorID
-
 
 Fees
 -
@@ -97,40 +92,35 @@ FeeID PK number
 Fee varchar2(20)
 FeeCost number
 FeeStartDate date
-FeeEndDate date nullable
-
+FeeEndDate date
 
 Genres
 -
 GenreID PK number
 Genre varchar2(20)
 
-
 GMMapper
 -
 GMMapperID PK number
-Genre number FK >-< Genres.GenreID
-Movie number FK >- Movies.MovieID
-
+Genre number FK - Genres.GenreID
+Movie number FK -< Movies.MovieID
 
 MAMapper
 -
 MAMapperID PK number
-Movie number FK >- Movies.MovieID
-Award number FK >-< Awards.AwardID
-
+Movie number FK - Movies.MovieID
+Award number FK -< Awards.AwardID
 
 Media
 -
 MediumID PK number
 MediumType varchar2(5)
-MovieID number FK >- Movies.MovieID
+MovieID number FK -< Movies.MovieID
 AcmeInventoryID number
 Distributor number FK - Distributors.DistributorID
-DistributorSerial number FK >- DistCat.DistributorSerial
+DistributorSerial number FK -< DistCat.DistributorSerial
 DistributorUID number
 RentalPrice number
-
 
 Movies
 -
@@ -138,27 +128,21 @@ MovieID PK number
 AcmeMovieID number
 Title varchar2(250)
 Duration number
-Rating char(2) nullable
+Rating char(2)
 Year number
-
-
-
-
 
 PMMapper
 -
 PMMapperID PK number
-Producer number FK -< Producers.ProducerID
-Movie number FK >- Movies.MovieID
-
+Producer number FK - Producers.ProducerID
+Movie number FK -< Movies.MovieID
 
 Producers
 -
 ProducerID number PK
 GivenName varchar2(50)
-FamilyName varchar2(50) nullable
-ProductionCompany varchar2(50) nullable
-
+FamilyName varchar2(50)
+ProductionCompany varchar2(50)
 
 Rentals
 -
@@ -166,10 +150,10 @@ RentalID PK number
 RentalDate date
 ScheduledReturnDate date
 ReturnedDate date
-Customer number FK >- Customers.CustomerID
-Medium number FK >- Media.MediumID
-Discount number  nullable
-LateFee boolean FK >- Fees.FeeID nullable
-DamagedFee boolean FK >- Fees.FeeID nullable
-NoRewindFee boolean FK >- Fees.FeeID nullable
+Customer number FK - Customers.CustomerID
+Medium number FK -< Media.MediumID
+Discount number
+LateFee boolean FK - Fees.FeeID
+DamagedFee boolean FK - Fees.FeeID
+NoRewindFee boolean FK - Fees.FeeID
 Tax number
