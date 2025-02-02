@@ -121,21 +121,28 @@ Entities and preliminary attributes.
 	      \end{itemize}
 
 \subsection{Relationship Sentence Pairs}
-An AMMapperID associates one mapper entry to one Actor \emph{and} one Award.
+An AMMapperID associates one mapper entry to one Actor.\\
+One Actor associates to a single AMMapperID.
 
-One Actor \emph{and} one award associates to a single AMMapperID.
+An AMMapperID associates one mapper entry to one Award.\\
+One Award associates to a single AMMapperID.
+
+as
 
 \end{itemize}
 
 \section{ER Diagrams}
 \subsection{Overview}
+As an overview of the physical model, here is the complete full data model for this database system.  For details on components of the data model, as well as more legible images, please see the individual sections below.
 \begin{figure}[H]
     \centering
-    \caption{Full Data model}
+    \caption{Full Data Model}
     \label{fig:Full_Data_Model}
     \includegraphics[width=1.0\linewidth]{Data Model.png}
 \end{figure}
+
 \subsection{Bridge Tables}
+Bridge tables are used to connect together tables that would otherwise have a many-to-many relationship.
 \begin{figure}[H]
     \centering
     \caption{AAMapper: Connecting Actors/Actresses to Awards}
