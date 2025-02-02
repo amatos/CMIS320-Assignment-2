@@ -133,16 +133,20 @@ Each ActorID may associate to one or more AMMapperID.
 Each AMMapperID associates one mapper entry to one MovieID.\\
 Each MovieID associates to a single AMMapperID.
 
-Each DAMapperID associates one
-Each DMMapperID associates one mapper entry to one DirectorID.\\
+Each DAMapperID associates one mapper entry to one DirectorID.\\
+Each DirectorID associates to a single DAMapperID.
 
-Each DirectorID may associate to one or more DMMapperID.\\
-Each DMMapperID
+Each DAMapperID associates one mapper entry to one AwardID.\\
+Each AwardID associates to a single DAMapperID.
+
+Each DMMapperID associates one mapper entry to one DirectorID.\\
+Each DirectorID associates to one or more DAMapperID.
 
 Each DMMapperID associates one mapper entry to one MovieID.\\
-Each MovieID may associate to a single DMMapperID.
+Each MovieID may associate to one or more DMMapperID.
 
-E
+Each GMMapper associates one mapper entry to one GenreID.\\
+Each GenreID may associate to one or more DMMapperID.
 
 \end{itemize}
 
