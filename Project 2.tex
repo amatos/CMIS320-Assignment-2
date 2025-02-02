@@ -166,9 +166,23 @@ Each AddressID may associate to one or more CustomerID.
 Each CustomerID associates to one ParentID.\\
 Each ParentID may associate to one or more CustomerID.
 
-E
+Each DistributorID associates to one Billing Address.\\
+An address may associate to only zero or one Billing Address.
 
+Each DistributorID associates to one Returns Address.\\
+An address may associate to only zero or one Returns Address.
 
+Each DistCatID associates to only one DistributorID.\\
+Each DistributorID associates to only one DistCatID.
+
+Each DistCatID associates to many MovieID.\\
+Each MovieID may associates to may DistCatID.
+
+Each MediumID associates to a single MovieID.\\
+Each MovieID may associate to many MediumID.
+
+Each MediumID associates to a single DistributorID.\\
+Each DistributorID asso
 \end{itemize}
 
 \section{ER Diagrams}
