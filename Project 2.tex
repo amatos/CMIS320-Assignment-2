@@ -120,84 +120,84 @@ Entities and preliminary attributes.
 		      \item Attributes: Rental ID (key), Rental Date, Scheduled Return Date, Was Movie Returned, Customer (FK), Medium (FK), Discount Applied, Late Fee (FK), Damage Fee (DK), Rewind Fee (FK), Tax charged
 	      \end{itemize}
 
-\subsection{Relationship Sentence Pairs}
-Each AAMapperID associates one mapper entry to one ActorID.\\
-Each ActorID may associate to one or more AAMapperID.
+	      \subsection{Relationship Sentence Pairs}
+	      Each AAMapperID associates one mapper entry to one ActorID.\\
+	      Each ActorID may associate to one or more AAMapperID.
 
-Each AAMapperID associates one mapper entry to one AwardID.\\
-Each AwardID associates to only one AAMapperID.
+	      Each AAMapperID associates one mapper entry to one AwardID.\\
+	      Each AwardID associates to only one AAMapperID.
 
-Each AMMapperID associates one mapper entry to one ActorID.\\
-Each ActorID may associate to one or more AMMapperID.
+	      Each AMMapperID associates one mapper entry to one ActorID.\\
+	      Each ActorID may associate to one or more AMMapperID.
 
-Each AMMapperID associates one mapper entry to one MovieID.\\
-Each MovieID associates to one or more AMMapperID.
+	      Each AMMapperID associates one mapper entry to one MovieID.\\
+	      Each MovieID associates to one or more AMMapperID.
 
-Each DAMapperID associates one mapper entry to one DirectorID.\\
-Each DirectorID associates to one or more DAMapperID.
+	      Each DAMapperID associates one mapper entry to one DirectorID.\\
+	      Each DirectorID associates to one or more DAMapperID.
 
-Each DAMapperID associates one mapper entry to one AwardID.\\
-Each AwardID associates to one or more DAMapperID.
+	      Each DAMapperID associates one mapper entry to one AwardID.\\
+	      Each AwardID associates to one or more DAMapperID.
 
-Each DMMapperID associates one mapper entry to one DirectorID.\\
-Each DirectorID associates to one or more DAMapperID.
+	      Each DMMapperID associates one mapper entry to one DirectorID.\\
+	      Each DirectorID associates to one or more DAMapperID.
 
-Each DMMapperID associates one mapper entry to one MovieID.\\
-Each MovieID may associate to one or more DMMapperID.
+	      Each DMMapperID associates one mapper entry to one MovieID.\\
+	      Each MovieID may associate to one or more DMMapperID.
 
-Each GMMapper associates one mapper entry to one GenreID.\\
-Each GenreID may associate to one or more GMMapperID.
+	      Each GMMapper associates one mapper entry to one GenreID.\\
+	      Each GenreID may associate to one or more GMMapperID.
 
-Each GMMapperID associates to only one MovieID.\\
-Each MovieID associates to one or more GMMapperIDs.
+	      Each GMMapperID associates to only one MovieID.\\
+	      Each MovieID associates to one or more GMMapperIDs.
 
-Each MAMapper associates one mapper entry to one MovieID.\\
-Each Movie may associate to one or more MAMapperID.
+	      Each MAMapper associates one mapper entry to one MovieID.\\
+	      Each Movie may associate to one or more MAMapperID.
 
-Each MAMapper associates one mapper entry to one AwardID.\\
-Each AwardID may associate to only one MAMapperID.
+	      Each MAMapper associates one mapper entry to one AwardID.\\
+	      Each AwardID may associate to only one MAMapperID.
 
-Each PMMapper associates one mapper entry to one MovieID.\\
-Each MovieID may associate to one or more PMMapper.
+	      Each PMMapper associates one mapper entry to one MovieID.\\
+	      Each MovieID may associate to one or more PMMapper.
 
-Each PMMapper associates one mapper entry to one ProducerID.\\
-Each ProducerID may associate to one or more PMMapper.
+	      Each PMMapper associates one mapper entry to one ProducerID.\\
+	      Each ProducerID may associate to one or more PMMapper.
 
-Each CustomerID associates to one AddressID.\\
-Each AddressID may associate to one or more CustomerID.
+	      Each CustomerID associates to one AddressID.\\
+	      Each AddressID may associate to one or more CustomerID.
 
-Each CustomerID associates to one ParentID.\\
-Each ParentID may associate to one or more CustomerID.
+	      Each CustomerID associates to one ParentID.\\
+	      Each ParentID may associate to one or more CustomerID.
 
-Each DistributorID associates to one Billing Address.\\
-An address may associate to only zero or one Billing Address.
+	      Each DistributorID associates to one Billing Address.\\
+	      An address may associate to only zero or one Billing Address.
 
-Each DistributorID associates to one Returns Address.\\
-An address may associate to only zero or one Returns Address.
+	      Each DistributorID associates to one Returns Address.\\
+	      An address may associate to only zero or one Returns Address.
 
-Each DistCatID associates to only one DistributorID.\\
-Each DistributorID associates to only one DistCatID.
+	      Each DistCatID associates to only one DistributorID.\\
+	      Each DistributorID associates to only one DistCatID.
 
-Each DistCatID associates to many MovieID.\\
-Each MovieID may associates to may DistCatID.
+	      Each DistCatID associates to many MovieID.\\
+	      Each MovieID may associates to may DistCatID.
 
-Each MediumID associates to a single MovieID.\\
-Each MovieID may associate to many MediumID.
+	      Each MediumID associates to a single MovieID.\\
+	      Each MovieID may associate to many MediumID.
 
-Each MediumID associates to a single DistributorID.\\
-Each DistributorID may associate to many MediumID
+	      Each MediumID associates to a single DistributorID.\\
+	      Each DistributorID may associate to many MediumID
 
-Each RentalID associates to a single CustomerID.\\
-Each CustomerID may associate to multiple RentalID.
+	      Each RentalID associates to a single CustomerID.\\
+	      Each CustomerID may associate to multiple RentalID.
 
-Each RentalID associates to a single MediumID.\\
-Each MediumID may associate to multiple RentalID.
+	      Each RentalID associates to a single MediumID.\\
+	      Each MediumID may associate to multiple RentalID.
 
-Each RentalID associates to a single CustomerID.\\
-Each CustomerID may associate to multiple RentalID.
+	      Each RentalID associates to a single CustomerID.\\
+	      Each CustomerID may associate to multiple RentalID.
 
-Each RentalID associates to zero or one  FeeID.\\
-Each FeeID may associate to multiple RentalID.
+	      Each RentalID associates to zero or one  FeeID.\\
+	      Each FeeID may associate to multiple RentalID.
 
 \end{itemize}
 
@@ -205,31 +205,31 @@ Each FeeID may associate to multiple RentalID.
 \subsection{Overview}
 As an overview of the physical model, here is the complete full data model for this database system.  For details on components of the data model, as well as more legible images, please see the individual sections below.
 \begin{figure}[H]
-    \centering
-    \caption{Full Data Model}
-    \label{fig:Full_Data_Model}
-    \includegraphics[width=1.0\linewidth]{Data Model.png}
+	\centering
+	\caption{Full Data Model}
+	\label{fig:Full_Data_Model}
+	\includegraphics[width=1.0\linewidth]{Data Model.png}
 \end{figure}
 
 \subsection{Bridge Tables}
 Bridge tables are used to connect together tables that would otherwise have a many-to-many relationship.
 \begin{figure}[H]
-    \centering
-    \caption{AAMapper: Connecting Actors/Actresses to Awards}
-    \label{fig:AAMapper}
-    \includegraphics[width=1.0\linewidth]{AAMapper - Actors - Awards.png}
+	\centering
+	\caption{AAMapper: Connecting Actors/Actresses to Awards}
+	\label{fig:AAMapper}
+	\includegraphics[width=1.0\linewidth]{AAMapper - Actors - Awards.png}
 \end{figure}
 \begin{figure}[H]
-    \centering
-    \caption{AMMapper: Map Actors/Actresses to Movies}
-    \label{fig:AMMapper}
-    \includegraphics[width=1.0\linewidth]{"AMMapper - Actors - Movies.png"}
+	\centering
+	\caption{AMMapper: Map Actors/Actresses to Movies}
+	\label{fig:AMMapper}
+	\includegraphics[width=1.0\linewidth]{"AMMapper - Actors - Movies.png"}
 \end{figure}
 \begin{figure}[H]
-    \centering
-    \caption{DAMapper: Map Directors to Awards}
-    \label{fig:DAMapper}
-    \includegraphics[width=1.0\linewidth]{"DAMapper - Directors - Awards.png"}
+	\centering
+	\caption{DAMapper: Map Directors to Awards}
+	\label{fig:DAMapper}
+	\includegraphics[width=1.0\linewidth]{"DAMapper - Directors - Awards.png"}
 \end{figure}
 
 \section{Metadata}
@@ -254,20 +254,20 @@ Bridge tables are used to connect together tables that would otherwise have a ma
 	             & FamilyName        &       & VARCHAR2(50)  & Actor's/Actress' Family Name.                                 \\
 	\\
 	Addresses    & AddressID         & PK    & NUMBER        & Primary Key for Addresses. Not Null.                          \\
-	             & StreetAddress1    &       & varchar2(50)  & Street Address. Not null.                                     \\
-	             & StreetAddress2    &       & varchar2(50)  & Street Address, line 2.                                       \\
-	             & Suite             &       & varchar2(20)  & Suite Number/Code.                                            \\
-	             & City              &       & varchar2(50)  & City name. Not null.                                          \\
+	             & StreetAddress1    &       & VARCHAR2(50)  & Street Address. Not null.                                     \\
+	             & StreetAddress2    &       & VARCHAR2(50)  & Street Address, line 2.                                       \\
+	             & Suite             &       & VARCHAR2(20)  & Suite Number/Code.                                            \\
+	             & City              &       & VARCHAR2(50)  & City name. Not null.                                          \\
 	             & State             &       & VARCHAR2(20)  & State name. Not null.                                         \\
-	             & PostalCode        &       & varchar2(20)  & Postal Code. Not null.                                        \\
-	             & Country           &       & VARCHAR2(2)   & ISO country code. Not null.                                   \\
+	             & PostalCode        &       & VARCHAR2(20)  & Postal Code. Not null.                                        \\
+	             & Country           & FK    & CHAR(2)       & FK for Countries.CountryID                                    \\
 	\\
 	AMMapper     & AMMapperID        & PK    & NUMBER        & Primary Key for Actor to Movie Mapper. Not null.              \\
 	             & Actor             & FK    & NUMBER        & FK for Actors.ActorID.                                        \\
 	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
 	\\
 	Awards       & AwardID           & PK    & NUMBER        & Primary Key for Award.                                        \\
-	             & AwardName         &       & varchar2(20)  & Name of award.                                                \\
+	             & AwardName         &       & VARCHAR2(20)  & Name of award.                                                \\
 	             & AwardWon          &       & BOOLEAN       & Was nominated or won award.                                   \\
 	\\
 	Customers    & CustomerID        & PK    & NUMBER        & PK for Customer Entity. Not null.                             \\
@@ -323,7 +323,6 @@ Bridge tables are used to connect together tables that would otherwise have a ma
 	             & Award             & FK    & NUMBER        & FK for Awards.awardID.                                        \\
 	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
 	\\
-
 	Media        & MediumID          & PK    & NUMBER        & Primary Key for Media. Not null.                              \\
 	             & MediumType        &       & VARCHAR2(5)   & Medium Type, i.e. DVD, VHS.                                   \\
 	             & MovieID           & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
@@ -338,7 +337,7 @@ Bridge tables are used to connect together tables that would otherwise have a ma
 	             & Title             &       & VARCHAR2(250) & Movie Title. Not null.                                        \\
 	             & Duration          &       & NUMBER        & Movie Length. Not null.                                       \\
 	             & Rating            &       & CHAR(2)       & Movie Rating.                                                 \\
-	             & Genre             & FK    & NUMBER        & FK for GMMapper.GMMapperID                                        \\
+	             & Genre             & FK    & NUMBER        & FK for GMMapper.GMMapperID                                    \\
 	\\
 	PMMapper     & PMMapperID        & PK    & NUMBER        & Primary Key for Producer to Movie Mapper. Not null.           \\
 	             & Producer          & FK    & NUMBER        & FK for Producers.ProducerID.                                  \\
@@ -360,6 +359,9 @@ Bridge tables are used to connect together tables that would otherwise have a ma
 	             & DamageFee         & FK    & NUMBER        & FK for Fees.FeeID.                                            \\
 	             & RewindFee         & FK    & NUMBER        & FK for Fees.FeeID.                                            \\
 	             & Tax               &       & NUMBER        & Transaction Tax total. Not null                               \\
+	\\
+	Countries    & CountryID         & PK    & CHAR(2)       & Primary Key for Country Code, uses ISO country ID.            \\
+	             & Country           &       & VARCHAR2(20)  & Country Name.                                                 \\
 	\bottomrule
 \end{longtblr}
 \end{document}
