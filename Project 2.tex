@@ -247,7 +247,7 @@ As an overview of the physical model, here is the complete full data model for t
 	             & Movie             & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
 	             & Price             &       & Number        & Catalogue Price.                                              \\
 	             & Medium            &       & VARCHAR2(5)   & Medium Type.                                                  \\
-	             & DistributorSerial &       & VARCHAR2(50)  & Distributor Serial Number.                                    \\
+	             & DistributorSerial &       & VARCHAR2(50)  & Distributor Serial Number. Must be unique.                                    \\
 	\\
 	DMMapper     & DMMapperID        & PK    & NUMBER        & Primary Key for Director to Movie Mapper. Not null.           \\
 	             & MovieID           & FK    & NUMBER        & FK for Movies.MovieID.                                        \\
