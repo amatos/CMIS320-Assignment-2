@@ -338,7 +338,7 @@ Bridge tables are used to connect together tables that would otherwise have a ma
 	             & Title             &       & VARCHAR2(250) & Movie Title. Not null.                                        \\
 	             & Duration          &       & NUMBER        & Movie Length. Not null.                                       \\
 	             & Rating            &       & CHAR(2)       & Movie Rating.                                                 \\
-	             & Genre             & FK    & NUMBER        & FK for Genres.GenreID.                                        \\
+	             & Genre             & FK    & NUMBER        & FK for GMMapper.GMMapperID                                        \\
 	\\
 	PMMapper     & PMMapperID        & PK    & NUMBER        & Primary Key for Producer to Movie Mapper. Not null.           \\
 	             & Producer          & FK    & NUMBER        & FK for Producers.ProducerID.                                  \\
