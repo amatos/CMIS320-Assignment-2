@@ -43,7 +43,7 @@ The database system will also help \emph{Acme Video Rental} track their customer
 \section{Data Model}
 \subsection{Entities and preliminary attributes}
 \begin{itemize}
-	\item AAMapper: Actor to Award Mapper
+	\item AAMapper: Actor to Award Mappers
 	      \begin{itemize}
 		      \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), AwardID (foreign Key referencing Award)
 	      \end{itemize}
@@ -55,7 +55,7 @@ The database system will also help \emph{Acme Video Rental} track their customer
 	      \begin{itemize}
 		      \item Attributes: AddressID (key), Street Address (2 lines), Suite, City, State, Postal Code
 	      \end{itemize}
-	\item AMMapper: Actor to Movie Mapper
+	\item AMMapper: Actor to Movie Mapper.
 	      \begin{itemize}
 		      \item Attributes: MapperID (key), ActorID (FK), MovieID (FK)
 	      \end{itemize}
@@ -67,55 +67,55 @@ The database system will also help \emph{Acme Video Rental} track their customer
 	      \begin{itemize}
 		      \item Attributes: CustomerID (key), Name, Address (FK), Phone Number, Email address, Parent ID (for sub-accounts), Restricted (for child accounts)
 	      \end{itemize}
-	\item DMMapper (Director to Movie Mappers)
+	\item DMMapper: Director to Movie Mappers.
 	      \begin{itemize}
 		      \item Attributes: MapperID (key), DirectorID (FK), MovieID (FK)
 	      \end{itemize}
-	\item DAMapper (Director to Award Mappers)
+	\item DAMapper: Director to Award Mappers.
 	      \begin{itemize}
 		      \item Attributes: MapperID (key), DirectorID (FK), AwardID (FK), Award Won (FK)
 	      \end{itemize}
-	\item Directors
+	\item Directors: A director of a movie.
 	      \begin{itemize}
 		      \item Attributes: DirectorID (key), Name
 	      \end{itemize}
-	\item Distributors
+	\item Distributors: An entity that sells movies in different media to wholesale customers.
 	      \begin{itemize}
 		      \item Attributes: DistributorID (key), Name, Billing Address (FK), Returns Address (FK), Phone Number, Discount Rate
 	      \end{itemize}
-	\item DistCat (Distributor Catalogue)
+	\item DistCat: Distributor catalogue
 	      \begin{itemize}
 		      \item Attributes: DistCatID (key), Distributor (FK), Movie (FK), Price, Medium, Distributor Serial Number
 	      \end{itemize}
-	\item Fees
+	\item Fees: Different fees that might apply to a rental.
 	      \begin{itemize}
 		      \item Attributes: FeeID (key), Fee Description, Fee Cost, Fee start date, Fee end date
 	      \end{itemize}
-	\item GMMapper (Genre to Movie Mapper)
+	\item GMMapper: Genre to Movie Mapper
 	      \begin{itemize}
 		      \item Attributes: GMMapperID (key), Genre (FK), Movie (FK)
 	      \end{itemize}
-	\item Genres
+	\item Genres: Genre of the movie
 	      \begin{itemize}
 		      \item Attributes: GenreID (key), Genre
 	      \end{itemize}
-	\item Media
+	\item Media: A VHS tape or DVD disc.
 	      \begin{itemize}
 		      \item Attributes: MediumID (key), Medium Type, Movie ID (FK), Acme Inventory ID, Distributor (FK), Distributor Serial Number, Distributor Movie ID, Rental Price
 	      \end{itemize}
-	\item Movies
+	\item Movies: A film.
 	      \begin{itemize}
 		      \item Attributes: MovieID (key), Acme Movie ID, Title, Duration, Rating, Genre (FK)
 	      \end{itemize}
-	\item PMMapper (Producer to Movie Mappers)
+	\item PMMapper: Producer to Movie Mappers
 	      \begin{itemize}
 		      \item Attributes: PMMapperID (key), Producer (FK), Movie (FK)
 	      \end{itemize}
-	\item Producers
+	\item Producers: A person who produces a movie.
 	      \begin{itemize}
 		      \item Attributes: ProducerID (key), Name, Production Company
 	      \end{itemize}
-	\item Rentals
+	\item Rentals: Individual rentals by customers.
 	      \begin{itemize}
 		      \item Attributes: Rental ID (key), Rental Date, Scheduled Return Date, Was Movie Returned, Customer (FK), Medium (FK), Discount Applied, Late Fee (FK), Damage Fee (DK), Rewind Fee (FK), Tax charged
 	      \end{itemize}
