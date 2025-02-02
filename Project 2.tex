@@ -119,88 +119,85 @@ The database system will also help \emph{Acme Video Rental} track their customer
 	      \begin{itemize}
 		      \item Attributes: Rental ID (key), Rental Date, Scheduled Return Date, Was Movie Returned, Customer (FK), Medium (FK), Discount Applied, Late Fee (FK), Damage Fee (DK), Rewind Fee (FK), Tax charged
 	      \end{itemize}
-
-\subsection{Relationship Sentence Pairs}
-	      Each AAMapperID associates one mapper entry to one ActorID.\\
-	      Each ActorID may associate to one or more AAMapperID.
-
-	      Each AAMapperID associates one mapper entry to one AwardID.\\
-	      Each AwardID associates to only one AAMapperID.
-
-	      Each AMMapperID associates one mapper entry to one ActorID.\\
-	      Each ActorID may associate to one or more AMMapperID.
-
-	      Each AMMapperID associates one mapper entry to one MovieID.\\
-	      Each MovieID associates to one or more AMMapperID.
-
-	      Each DAMapperID associates one mapper entry to one DirectorID.\\
-	      Each DirectorID associates to one or more DAMapperID.
-
-	      Each DAMapperID associates one mapper entry to one AwardID.\\
-	      Each AwardID associates to one or more DAMapperID.
-
-	      Each DMMapperID associates one mapper entry to one DirectorID.\\
-	      Each DirectorID associates to one or more DAMapperID.
-
-	      Each DMMapperID associates one mapper entry to one MovieID.\\
-	      Each MovieID may associate to one or more DMMapperID.
-
-	      Each GMMapper associates one mapper entry to one GenreID.\\
-	      Each GenreID may associate to one or more GMMapperID.
-
-	      Each GMMapperID associates to only one MovieID.\\
-	      Each MovieID associates to one or more GMMapperIDs.
-
-	      Each MAMapper associates one mapper entry to one MovieID.\\
-	      Each Movie may associate to one or more MAMapperID.
-
-	      Each MAMapper associates one mapper entry to one AwardID.\\
-	      Each AwardID may associate to only one MAMapperID.
-
-	      Each PMMapper associates one mapper entry to one MovieID.\\
-	      Each MovieID may associate to one or more PMMapper.
-
-	      Each PMMapper associates one mapper entry to one ProducerID.\\
-	      Each ProducerID may associate to one or more PMMapper.
-
-	      Each CustomerID associates to one AddressID.\\
-	      Each AddressID may associate to one or more CustomerID.
-
-	      Each CustomerID associates to one ParentID.\\
-	      Each ParentID may associate to one or more CustomerID.
-
-	      Each DistributorID associates to one Billing Address.\\
-	      An address may associate to only zero or one Billing Address.
-
-	      Each DistributorID associates to one Returns Address.\\
-	      An address may associate to only zero or one Returns Address.
-
-	      Each DistCatID associates to only one DistributorID.\\
-	      Each DistributorID associates to only one DistCatID.
-
-	      Each DistCatID associates to many MovieID.\\
-	      Each MovieID may associates to may DistCatID.
-
-	      Each MediumID associates to a single MovieID.\\
-	      Each MovieID may associate to many MediumID.
-
-	      Each MediumID associates to a single DistributorID.\\
-	      Each DistributorID may associate to many MediumID
-
-	      Each RentalID associates to a single CustomerID.\\
-	      Each CustomerID may associate to multiple RentalID.
-
-	      Each RentalID associates to a single MediumID.\\
-	      Each MediumID may associate to multiple RentalID.
-
-	      Each RentalID associates to a single CustomerID.\\
-	      Each CustomerID may associate to multiple RentalID.
-
-	      Each RentalID associates to zero or one  FeeID.\\
-	      Each FeeID may associate to multiple RentalID.
-
 \end{itemize}
+\subsection{Relationship Sentence Pairs}
+Each AAMapperID associates one mapper entry to one ActorID.\\
+Each ActorID may associate to one or more AAMapperID.\\
+\\
+Each AAMapperID associates one mapper entry to one AwardID.\\
+Each AwardID associates to only one AAMapperID.
 
+Each AMMapperID associates one mapper entry to one ActorID.\\
+Each ActorID may associate to one or more AMMapperID.
+
+Each AMMapperID associates one mapper entry to one MovieID.\\
+Each MovieID associates to one or more AMMapperID.
+
+Each DAMapperID associates one mapper entry to one DirectorID.\\
+Each DirectorID associates to one or more DAMapperID.
+
+Each DAMapperID associates one mapper entry to one AwardID.\\
+Each AwardID associates to one or more DAMapperID.
+
+Each DMMapperID associates one mapper entry to one DirectorID.\\
+Each DirectorID associates to one or more DAMapperID.
+
+Each DMMapperID associates one mapper entry to one MovieID.\\
+Each MovieID may associate to one or more DMMapperID.
+
+Each GMMapper associates one mapper entry to one GenreID.\\
+Each GenreID may associate to one or more GMMapperID.
+
+Each GMMapperID associates to only one MovieID.\\
+Each MovieID associates to one or more GMMapperIDs.
+
+Each MAMapper associates one mapper entry to one MovieID.\\
+Each Movie may associate to one or more MAMapperID.
+
+Each MAMapper associates one mapper entry to one AwardID.\\
+Each AwardID may associate to only one MAMapperID.
+
+Each PMMapper associates one mapper entry to one MovieID.\\
+Each MovieID may associate to one or more PMMapper.
+
+Each PMMapper associates one mapper entry to one ProducerID.\\
+Each ProducerID may associate to one or more PMMapper.
+
+Each CustomerID associates to one AddressID.\\
+Each AddressID may associate to one or more CustomerID.
+
+Each CustomerID associates to one ParentID.\\
+Each ParentID may associate to one or more CustomerID.
+
+Each DistributorID associates to one Billing Address.\\
+An address may associate to only zero or one Billing Address.
+
+Each DistributorID associates to one Returns Address.\\
+An address may associate to only zero or one Returns Address.
+
+Each DistCatID associates to only one DistributorID.\\
+Each DistributorID associates to only one DistCatID.
+
+Each DistCatID associates to many MovieID.\\
+Each MovieID may associates to may DistCatID.
+
+Each MediumID associates to a single MovieID.\\
+Each MovieID may associate to many MediumID.
+
+Each MediumID associates to a single DistributorID.\\
+Each DistributorID may associate to many MediumID
+
+Each RentalID associates to a single CustomerID.\\
+Each CustomerID may associate to multiple RentalID.
+
+Each RentalID associates to a single MediumID.\\
+Each MediumID may associate to multiple RentalID.
+
+Each RentalID associates to a single CustomerID.\\
+Each CustomerID may associate to multiple RentalID.
+
+Each RentalID associates to zero or one  FeeID.\\
+Each FeeID may associate to multiple RentalID.
 \section{ER Diagrams}
 \subsection{Overview}
 As an overview of the physical model, here is the complete full data model for this database system.  For details on components of the data model, as well as more legible images, please see the individual sections below.
