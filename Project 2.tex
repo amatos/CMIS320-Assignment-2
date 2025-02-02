@@ -125,13 +125,13 @@ Each AAMapperID associates one mapper entry to one ActorID.\\
 Each ActorID may associate to one or more AAMapperID.
 
 Each AAMapperID associates one mapper entry to one AwardID.\\
-Each AwardID associates to a single AAMapperID.
+Each AwardID associates to only one AAMapperID.
 
 Each AMMapperID associates one mapper entry to one ActorID.\\
 Each ActorID may associate to one or more AMMapperID.
 
 Each AMMapperID associates one mapper entry to one MovieID.\\
-Each MovieID associates to one or moreAMMapperID.
+Each MovieID associates to one or more AMMapperID.
 
 Each DAMapperID associates one mapper entry to one DirectorID.\\
 Each DirectorID associates to one or more DAMapperID.
@@ -147,6 +147,16 @@ Each MovieID may associate to one or more DMMapperID.
 
 Each GMMapper associates one mapper entry to one GenreID.\\
 Each GenreID may associate to one or more DMMapperID.
+
+Each MAMapper associates one mapper entry to one MovieID.\\
+Each Movie may associate to one or more MAMapperID.
+
+Each MAMapper associates one mapper entry to one AwardID.\\
+Each AwardID may associate to only one MAMapperID.
+
+Each PAMapper associates one mapper entry to one AwardID.\\
+Each AwardID may associate to only one MAMapperID.
+
 
 \end{itemize}
 
