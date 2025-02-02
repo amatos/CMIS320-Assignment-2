@@ -1,0 +1,17 @@
+DAMapper
+-
+DAMapperID PK number
+Director number FK - Directors.DirectorID
+Award number FK - Awards.AwardID
+
+Directors
+-
+DirectorID number PK
+GivenName varchar2(50)
+FamilyName varchar2(50) nullable
+
+Awards
+-
+AwardID PK number
+AwardName varchar2(20)
+AwardYear number

@@ -1,45 +1,16 @@
-Directors
+AAMapper
 -
-DirectorID number PK
-GivenName varchar2(50)
+AAMapperID PK number
+Actor FK >- Actors.ActorID
+Award number FK >- Awards.AwardID
+
+
+Actors
+-
+ActorID PK number
+GiveName varchar2(50)
 FamilyName varchar2(50) nullable
 
-DirectorMovieMapper
--
-DMMapperID number PK
-MovieID number FK >- Movies.MovieID
-DirectorID number FK -< Directors.DirectorID
-
-Producers
--
-ProducerID number PK
-GivenName varchar2(50)
-FamilyName varchar2(50) nullable
-ProductionCompany varchar2(50) nullable
-
-ProducerMovieMapper
--
-PMMapperID PK number
-Producer number FK -< Producers.ProducerID
-Movie number FK >- Movies.MovieID
-
-Distributors
--
-DistributorID PK number
-DistributorName varchar2(50)
-BillingAddress number FK - Addresses.AddressID
-ReturnAddress number FK - Addresses.AddressID nullable
-PhoneNumber number
-EmailAddress varchar2(50)
-
-DistributorCatalogue
--
-DistributorCatalogID PK number
-Distributor number FK >- Distributors.DistributorID
-Movie number FK >- Movies.MovieID
-Medium varchar2(5)
-Price number
-DistributorSerial number
 
 Addresses
 -
@@ -52,16 +23,13 @@ State varchar2(20)
 PostalCode varchar2(20) nullable
 Country varchar2(2) nullable
 
-Movies
+
+AMMapper
 -
-MovieID PK number
-AcmeUID number
-Title varchar2(250)
-Director number FK -< DirectorMovieMapper.DMMapperID
-Producer number FK -< ProducerMovieMapper.PMMapperID
-Duration number
-Rating char(2) nullable
-Year number
+AMMapperID PK number
+Actor FK - Actors.ActorID
+Movie number FK - Movies.MovieID
+
 
 Awards
 -
@@ -69,44 +37,6 @@ AwardID PK number
 AwardName varchar2(20)
 AwardYear number
 
-AwardMovieMapper
--
-AMMapperID PK number
-Movie number FK >- Movies.MovieID
-Award number FK >-< Awards.AwardID
-
-Genres
--
-GenreID PK number
-Genre varchar2(20)
-
-GenreMovieMapper
--
-GMMapperID PK number
-Genre number FK >-< Genres.GenreID
-Movie number FK >- Movies.MovieID
-
-Media
--
-MediumID PK number
-MediumType varchar2(5)
-MovieID number FK >- Movies.MovieID
-AcmeID number
-DistributorSerial number FK >- DistributorCatalogue.DistributorSerial
-DistributorUID number
-RentalPrice number
-
-Actors
--
-ActorID PK number
-GiveName varchar2(50)
-FamilyName varchar2(50) nullable
-
-ActorMovieMapper
--
-AMMapperID PK number
-Movie number FK >- Movies.MovieID
-Actor number FK >-< Actors.ActorID
 
 Customers
 -
@@ -114,25 +44,132 @@ CustomerID PK number
 GiveName varchar2(50)
 FamilyName varchar2(50) nullable
 Address FK >- Addresses.AddressID
-ParendCustomerID number FK >- Customers.CustomerID  nullable
+PhoneNumber number
+EmailAddress varchar2(50)
+ParentID number FK >- Customers.CustomerID  nullable
+Restricted boolean nullable
 
-RentalActivities
+
+DAMapper
 -
-RentalActivityID PK number
-RentalDate date
-ScheduledReturnDate date
-Customer number FK >- Customers.CustomerID
-Medium number FK >- Media.MediumID
-PromotionalDiscount number  nullable
-LateFee boolean nullable
-DamagedFee boolean nullable
-NoRewindFee boolean nullable
-Tax number
+DAMapperID PK number
+Director number FK - Directors.DirectorID
+Award number FK - Awards.AwardID
+
+Directors
+-
+DirectorID number PK
+GivenName varchar2(50)
+FamilyName varchar2(50) nullable
+
+
+Distributors
+-
+DistributorID PK number
+DistributorName varchar2(50)
+BillingAddress number FK - Addresses.AddressID
+ReturnAddress number FK - Addresses.AddressID nullable
+PhoneNumber number
+EmailAddress varchar2(50)
+Discount number
+
+
+DistCat
+-
+DistCat PK number
+Distributor number FK >- Distributors.DistributorID
+Movie number FK >- Movies.MovieID
+Medium varchar2(5)
+Price number
+DistributorSerial number
+
+
+DMMapper
+-
+DMMapperID number PK
+MovieID number FK >- Movies.MovieID
+DirectorID number FK -< Directors.DirectorID
+
 
 Fees
 -
 FeeID PK number
-FeeType varchar2(20)
+Fee varchar2(20)
 FeeCost number
 FeeStartDate date
 FeeEndDate date nullable
+
+
+Genres
+-
+GenreID PK number
+Genre varchar2(20)
+
+
+GMMapper
+-
+GMMapperID PK number
+Genre number FK >-< Genres.GenreID
+Movie number FK >- Movies.MovieID
+
+
+MAMapper
+-
+MAMapperID PK number
+Movie number FK >- Movies.MovieID
+Award number FK >-< Awards.AwardID
+
+
+Media
+-
+MediumID PK number
+MediumType varchar2(5)
+MovieID number FK >- Movies.MovieID
+AcmeInventoryID number
+Distributor number FK - Distributors.DistributorID
+DistributorSerial number FK >- DistCat.DistributorSerial
+DistributorUID number
+RentalPrice number
+
+
+Movies
+-
+MovieID PK number
+AcmeMovieID number
+Title varchar2(250)
+Duration number
+Rating char(2) nullable
+Year number
+
+
+
+
+
+PMMapper
+-
+PMMapperID PK number
+Producer number FK -< Producers.ProducerID
+Movie number FK >- Movies.MovieID
+
+
+Producers
+-
+ProducerID number PK
+GivenName varchar2(50)
+FamilyName varchar2(50) nullable
+ProductionCompany varchar2(50) nullable
+
+
+Rentals
+-
+RentalID PK number
+RentalDate date
+ScheduledReturnDate date
+ReturnedDate date
+Customer number FK >- Customers.CustomerID
+Medium number FK >- Media.MediumID
+Discount number  nullable
+LateFee boolean FK >- Fees.FeeID nullable
+DamagedFee boolean FK >- Fees.FeeID nullable
+NoRewindFee boolean FK >- Fees.FeeID nullable
+Tax number

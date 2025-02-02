@@ -1,0 +1,21 @@
+AMMapper
+-
+AMMapperID PK number
+Actor FK - Actors.ActorID
+Movie number FK - Movies.MovieID
+
+
+Actors
+-
+ActorID PK number
+GiveName varchar2(50)
+FamilyName varchar2(50) nullable
+
+Movies
+-
+MovieID PK number
+AcmeMovieID number
+Title varchar2(250)
+Duration number
+Rating char(2) nullable
+Year number

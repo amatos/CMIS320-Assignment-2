@@ -1,0 +1,18 @@
+AAMapper
+-
+AAMapperID PK number
+Actor FK - Actors.ActorID
+Award number FK - Awards.AwardID
+
+
+Actors
+-
+ActorID PK number
+GiveName varchar2(50)
+FamilyName varchar2(50) nullable
+
+Awards
+-
+AwardID PK number
+AwardName varchar2(20)
+AwardYear number
