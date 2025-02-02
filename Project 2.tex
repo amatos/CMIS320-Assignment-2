@@ -43,27 +43,27 @@ The database system will also help \emph{Acme Video Rental} track their customer
 \section{Data Model}
 \subsection{Entities and preliminary attributes}
 \begin{itemize}
-	\item AAMapper (Actor to Award Mapper)
+	\item AAMapper: Actor to Award Mapper
 	      \begin{itemize}
 		      \item Attributes: MapperID (key), ActorID (foreign key referencing Actor/Actress), AwardID (foreign Key referencing Award)
 	      \end{itemize}
-	\item Actors
+	\item Actors: Represents an Actor or Actress in a movie.
 	      \begin{itemize}
 		      \item Attributes: ActorID (key), Name (Given and Family names, that is, First and Last names, in separate fields)
 	      \end{itemize}
-	\item Addresses
+	\item Addresses: Represents an address belonging to a customer, distributor, or other entity.
 	      \begin{itemize}
 		      \item Attributes: AddressID (key), Street Address (2 lines), Suite, City, State, Postal Code
 	      \end{itemize}
-	\item AMMapper (Actor to Movie Mapper)
+	\item AMMapper: Actor to Movie Mapper
 	      \begin{itemize}
 		      \item Attributes: MapperID (key), ActorID (FK), MovieID (FK)
 	      \end{itemize}
-	\item Awards
+	\item Awards: Represents an Academy Award won by an actor/actress, director, or movie.
 	      \begin{itemize}
 		      \item Attributes: AwardID (key), Name, Award won (was the award won, or was it a nomination only), Award year
 	      \end{itemize}
-	\item Customers
+	\item Customers: Represents a customer of \emph{Acme Video Rental}.
 	      \begin{itemize}
 		      \item Attributes: CustomerID (key), Name, Address (FK), Phone Number, Email address, Parent ID (for sub-accounts), Restricted (for child accounts)
 	      \end{itemize}
