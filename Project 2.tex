@@ -41,7 +41,7 @@ In order to help \emph{Acme Video Rental} better their costs, the database syste
 The database system will also help \emph{Acme Video Rental} track their customers by recording when a Movie is rented, and whether any fees are due as a result of either damaged, late, or, in the case of VHS tapes, a failure to rewind the tape before it is returned.  This will also provide a benefit to \emph{Acme Video Rental}'s customers, who will be able to track what movies they have rented, and possibly identify previously unknown preferences on genres, directors, actors and actresses.  As an additional benefit, \emph{Acme Video Rental} will also be able to offer ``Family Accounts'' so that other members of a customer's family will be able to consolidate billing under a single individual.  This also provides a measure of parental controls, as ``Family Account'' members can be restricted to only rent movies under a predefined rating (That is, a restricted child account should not be able to rent an 'R' or 'MA' movie).
 
 \section{Data Model}
-Entities and preliminary attributes.
+\subsection{Entities and preliminary attributes}
 \begin{itemize}
 	\item AAMapper (Actor to Award Mapper)
 	      \begin{itemize}
@@ -120,7 +120,7 @@ Entities and preliminary attributes.
 		      \item Attributes: Rental ID (key), Rental Date, Scheduled Return Date, Was Movie Returned, Customer (FK), Medium (FK), Discount Applied, Late Fee (FK), Damage Fee (DK), Rewind Fee (FK), Tax charged
 	      \end{itemize}
 
-	      \subsection{Relationship Sentence Pairs}
+\subsection{Relationship Sentence Pairs}
 	      Each AAMapperID associates one mapper entry to one ActorID.\\
 	      Each ActorID may associate to one or more AAMapperID.
 
